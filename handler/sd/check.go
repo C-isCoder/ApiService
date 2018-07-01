@@ -69,7 +69,7 @@ func CPUCheck(c *gin.Context) {
 		text = "WARNING"
 	}
 
-	message := fmt.Sprintf("%s - Load average: %.2f,%.2f | Cores: %d", text, l1, l5, l15, cores)
+	message := fmt.Sprintf("%s - Load average: %.2f %.2f, %.2f | Cores: %d", text, l1, l5, l15, cores)
 	c.String(status, "\n"+message)
 }
 
