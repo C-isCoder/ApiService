@@ -87,13 +87,13 @@ func RAMCheck(c *gin.Context) {
 	text := "OK"
 
 	if usedPercent >= 95 {
-		status = Http.StatusInternalServerError
+		status = http.StatusInternalServerError
 		text = "CRITICAL"
 	} else if usedPercent >= 90 {
 		status = http.StatusTooManyRequests
 		text = "WARNING"
 	}
 
-	message := fmt.Sprintf("%s - Free space: %dMB (%dGB) / %dMB (%dGB) | Used:%d%%", text, usedMb, usedGb, totalMB, totalGB, usedPercent)
+	message := fmt.Sprintf("%s - Free space: %dMB (%dGB) / %dMB (%dGB) | Used:%d%%", text, usedMB, usedGB, totalMB, totalGB, usedPercent)
 	c.String(status, "\n"+message)
 }
