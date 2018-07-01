@@ -18,6 +18,6 @@ func main() {
 		middlewares...,
 	)
 
-	log.Printf("Strat to listening the incoming requests on http addresss: %s", ":8080")
-	log.Printf(http.ListenAndServe(":8080", g).Error())
+	log.Printf("Strat to listening the incoming requests on http addresss: %s", ":8989")
+	log.Printf(http.ListenAndServe(":8989", g).Error())
 }
