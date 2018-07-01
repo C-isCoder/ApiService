@@ -31,7 +31,7 @@ func DiskCheck(c *gin.Context) {
 	usedMB := int(u.Used) / MB
 	usedGB := int(u.Used) / GB
 	totalMB := int(u.Total) / MB
-	totalGB := init(u.Total) / GB
+	totalGB := int(u.Total) / GB
 	usedPercent := int(u.UsedPercent)
 
 	status := http.StatusOK
