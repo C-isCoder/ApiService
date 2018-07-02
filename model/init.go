@@ -53,28 +53,28 @@ func InitSelfDB() *gorm.BD {
 		viper.GetString("db.username"),
 		viper.GetString("db.password"),
 		viper.GetString("db.addr"),
-		viper.GetString("db.name")
+		viper.GetString("db.name"),
 	)
 }
 
-func GetSelfDB() *gorm.DB{
+func GetSelfDB() *gorm.DB {
 	return InitSelfDB()
 }
 
-func InitDockerDB() *gorm.DB{
+func InitDockerDB() *gorm.DB {
 	return openDB(
 		viper.GetString("docker_db.username"),
 		viper.GetString("docker_db.password"),
 		viper.GetString("docker_db.addr"),
-		viper.GetString("docker_db.name")
+		viper.GetString("docker_db.name"),
 	)
 }
 
-func GetDockerDB() *gorm.DB{
+func GetDockerDB() *gorm.DB {
 	return InitDockerDB()
 }
 
-func(db *Database) Close(){
+func (db *Database) Close() {
 	DB.Self.Close()
 	DB.Docker.Close()
 }
