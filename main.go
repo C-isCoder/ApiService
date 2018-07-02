@@ -3,8 +3,10 @@ package main
 import (
 	"apiservice/config"
 	"apiservice/router"
+	"errors"
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/pflag"
@@ -36,9 +38,9 @@ func main() {
 	)
 
 	// Ping the server to make sure the router is working
-	go func(){
-		if err : = pingServer(); err != nil{
-			log.Fatal("The router has no response, or it might took too long to start up.",err)
+	go func() {
+		if err := pingServer(); err != nil {
+			log.Fatal("The router has no response, or it might took too long to start up.", err)
 		}
 	}()
 
@@ -47,17 +49,17 @@ func main() {
 }
 
 // pingServer pings the http server to make sure the router is working
-func pingServer() error{
-	for i := 0;i<viper.GetInt("max_ping_count"); i++{
+func pingServer() error {
+	for i := 0; i < viper.GetInt("max_ping_count"); i++ {
 		// Ping the server by sending a GET request to '/helath'.
-		resp, err := http.Get(viper.GetString("url")+"/sd/health")
-		if err == nil && resp.StatusCode == 200{
+		resp, err := http.Get(viper.GetString("url") + "/sd/health")
+		if err == nil && resp.StatusCode == 200 {
 			return nil
 		}
 
 		// Sleep for a second to continue the next ping.
 		log.Print("Wating for the router, retry in 1 second.")
-		time.Sleep(thime.Second)
+		time.Sleep(time.Second)
 	}
 	return errors.New("Cannot connect to the router.")
 }
