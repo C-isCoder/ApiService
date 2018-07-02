@@ -42,10 +42,11 @@ func main() {
 		if err := pingServer(); err != nil {
 			log.Fatal("The router has no response, or it might took too long to start up.", err)
 		}
+		log.Info("The router has been deployed successfully.")
 	}()
 
-	log.Printf("Strat to listening the incoming requests on http address: %s", viper.GetString("port"))
-	log.Printf(http.ListenAndServe(viper.GetString("port"), g).Error())
+	log.Infof("Strat to listening the incoming requests on http address: %s", viper.GetString("port"))
+	log.Info(http.ListenAndServe(viper.GetString("port"), g).Error())
 }
 
 // pingServer pings the http server to make sure the router is working
@@ -58,7 +59,7 @@ func pingServer() error {
 		}
 
 		// Sleep for a second to continue the next ping.
-		log.Print("Wating for the router, retry in 1 second.")
+		log.Info("Wating for the router, retry in 1 second.")
 		time.Sleep(time.Second)
 	}
 	return errors.New("Cannot connect to the router.")
