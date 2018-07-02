@@ -4,11 +4,11 @@ import (
 	"apiservice/config"
 	"apiservice/router"
 	"errors"
-	"log"
 	"net/http"
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/lexkong/log"
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 )
