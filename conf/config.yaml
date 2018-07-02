@@ -7,7 +7,7 @@ log:
   writers: file,stdout            # 输出位置，有两个可选项 —— file 和 stdout。选择 file 会将日志记录到 
   logger_level: DEBUG             # 日志级别，DEBUG、INFO、WARN、ERROR、FATAL
   logger_file: log/apiservice.log # 指定的日志文件中，选择 stdout 会将日志输出到标准输出，当然也可以两者同时选择
-  log_format_text: true          # 日志的输出格式，JSON 或者 plaintext，true 会输出成 JSON 格式，false 会输出成非 JSON 格式
+  log_format_text: false          # 日志的输出格式，JSON 或者 plaintext，false 会输出成 JSON 格式，true 会输出成非 JSON 格式
   rollingPolicy: size             # rotate 依据，可选的有 daily 和 size。如果选 daily 则根据天进行转存，如果是 size 则根据大小进行转存
   log_rotate_date: 1              # rotate 转存时间，配 合rollingPolicy: daily 使用
   log_rotate_siez: 1024           # rotate 转存大小，配合 rollingPolicy: size 使用
