@@ -14,6 +14,8 @@ type Database struct {
 	Docker *gorm.DB
 }
 
+var DB *Database
+
 func (db *Database) Init() {
 	DB = &Database{
 		Self:   GetSelfDB(),
