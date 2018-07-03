@@ -19,6 +19,7 @@ func Create(c *gin.Context) {
 	var err error
 	if err := c.Bind(&r); err != nil {
 		c.JSON(http.StatusOK, gin.H{"error": errno.ErrBind})
+		return
 	}
 
 	log.Debugf("username is: [%s], password is [%s]", r.Username, r.Password)
