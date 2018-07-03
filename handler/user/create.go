@@ -24,7 +24,7 @@ func Create(c *gin.Context) {
 
 	log.Debugf("username is: [%s], password is [%s]", r.Username, r.Password)
 	if r.Username == "" {
-		err = errno.New(errno.ErrUserNotFount, fmt.Errorf("username can not find in db: xx.xx.xx.xx")).Add("This is add message.")
+		err = errno.New(errno.ErrUserNotFound, fmt.Errorf("username can not find in db: xx.xx.xx.xx")).Add("This is add message.")
 		log.Errorf(err, "Get an error")
 	}
 
