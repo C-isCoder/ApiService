@@ -1,7 +1,7 @@
 package user
 
 import (
-	. "apiserver/handler"
+	"apiservice/handler"
 	"apiservice/pkg/errno"
 	"fmt"
 
@@ -13,7 +13,7 @@ import (
 func Create(c *gin.Context) {
 	var r CreateRequest
 	if err := c.Bind(&r); err != nil {
-		SendResponse(c, errno.ErrBind, nil)
+		handler.SendResponse(c, errno.ErrBind, nil)
 		return
 	}
 
@@ -26,18 +26,18 @@ func Create(c *gin.Context) {
 	contentType := c.GetHeader("Content-Type")
 	log.Infof("Header Content-Type: %s", contentType)
 
-	log.Debugf("username is: [$s], password is [%s]", r.Username, r.Passwrod)
+	log.Debugf("username is: [$s], password is [%s]", r.Username, r.Password)
 	if r.Username == "" {
-		SendResponse(c, errno.New(errno.ErrUserNotFound, fmt.Errorf("username can not found in db: xx.xx.xx.xx")), nil)
+		handler.SendResponse(c, errno.New(errno.ErrUserNotFound, fmt.Errorf("username can not found in db: xx.xx.xx.xx")), nil)
 		return
 	}
 
-	if r.Passwrod == "" {
-		SendResponse(c, fmt.Errorf("password is empty"), nil)
+	if r.Password == "" {
+		handler.SendResponse(c, fmt.Errorf("password is empty"), nil)
 	}
 
 	rsp := CreateResponse{Username: r.Username}
 
 	// Show the user information.
-	SendResponse(c, nil, rsp)
+	handler.SendResponse(c, nil, rsp)
 }
