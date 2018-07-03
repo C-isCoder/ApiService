@@ -18,7 +18,7 @@ func Load(g *gin.Engine, mw ...gin.HandlerFunc) *gin.Engine {
 	g.Use(mw...)
 	// 404 handler.
 	g.NoRoute(func(c *gin.Context) {
-		c.String(http.StatusNotFound, "THe incorrect API route.")
+		c.String(http.StatusNotFound, "The incorrect API route.")
 	})
 
 	u := g.Group("/v1/user")
