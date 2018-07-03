@@ -1,9 +1,9 @@
 package user
 
 import (
+	. "apiserver/handler"
 	"apiservice/pkg/errno"
 	"fmt"
-	"net/http"
 
 	"github.com/gin-gonic/gin"
 	"github.com/lexkong/log"
@@ -11,31 +11,33 @@ import (
 
 // Create creates a new user account.
 func Create(c *gin.Context) {
-	var r struct {
-		Username string `json:"username"`
-		Password string `json:"password"`
-	}
-
-	var err error
+	var r CreateRequest
 	if err := c.Bind(&r); err != nil {
-		c.JSON(http.StatusOK, gin.H{"error": errno.ErrBind})
+		SendResponse(c, errno.ErrBind, nil)
 		return
 	}
 
-	log.Debugf("username is: [%s], password is [%s]", r.Username, r.Password)
+	admin2 := c.Param("username")
+	log.Infof("URL username: %s", admin2)
+
+	desc := c.Query("desc")
+	log.Infof("URL key param desc: %s", desc)
+
+	contentType := c.GetHeader("Content-Type")
+	log.Infof("Header Content-Type: %s", contentType)
+
+	log.Debugf("username is: [$s], password is [%s]", r.Username, r.Passwrod)
 	if r.Username == "" {
-		err = errno.New(errno.ErrUserNotFound, fmt.Errorf("username can not find in db: xx.xx.xx.xx")).Add("This is add message.")
-		log.Errorf(err, "Get an error")
+		SendResponse(c, errno.New(errno.ErrUserNotFound, fmt.Errorf("username can not found in db: xx.xx.xx.xx")), nil)
+		return
 	}
 
-	if errno.IsErrUserNotFound(err) {
-		log.Debug("err type is ErrUserNotFount")
+	if r.Passwrod == "" {
+		SendResponse(c, fmt.Errorf("password is empty"), nil)
 	}
 
-	if r.Password == "" {
-		err = fmt.Errorf("password is empty")
-	}
+	rsp := CreateResponse{Username: r.Username}
 
-	code, message := errno.DecodeErr(err)
-	c.JSON(http.StatusOK, gin.H{"code": code, "message": message})
+	// Show the user information.
+	SendResponse(c, nil, rsp)
 }
