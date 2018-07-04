@@ -1,12 +1,13 @@
 package main
 
 import (
-	"apiservice/config"
-	"apiservice/model"
-	"apiservice/router"
 	"errors"
 	"net/http"
 	"time"
+
+	"apiservice/config"
+	"apiservice/model"
+	"apiservice/router"
 
 	"github.com/gin-gonic/gin"
 	"github.com/lexkong/log"
@@ -35,7 +36,7 @@ func main() {
 
 	// 创建路由引擎
 	g := gin.New()
-	middlewares := []gin.HandlerFunc{}
+	var middlewares []gin.HandlerFunc
 
 	router.Load(
 		g,
@@ -50,22 +51,22 @@ func main() {
 		log.Info("The router has been deployed successfully.")
 	}()
 
-	log.Infof("Strat to listening the incoming requests on http address: %s", viper.GetString("port"))
+	log.Infof("Start to listening the incoming requests on http address: %s", viper.GetString("port"))
 	log.Info(http.ListenAndServe(viper.GetString("port"), g).Error())
 }
 
 // pingServer pings the http server to make sure the router is working
 func pingServer() error {
 	for i := 0; i < viper.GetInt("max_ping_count"); i++ {
-		// Ping the server by sending a GET request to '/helath'.
+		// Ping the server by sending a GET request to '/health'.
 		resp, err := http.Get(viper.GetString("url") + "/sd/health")
 		if err == nil && resp.StatusCode == 200 {
 			return nil
 		}
 
 		// Sleep for a second to continue the next ping.
-		log.Info("Wating for the router, retry in 1 second.")
+		log.Info("Waiting for the router, retry in 1 second.")
 		time.Sleep(time.Second)
 	}
-	return errors.New("Cannot connect to the router.")
+	return errors.New("Cannot connect to the router. ")
 }

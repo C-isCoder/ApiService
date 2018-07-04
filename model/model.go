@@ -18,7 +18,7 @@ type UserInfo struct {
 	SayHello  string `json:"sayHello"`
 	Password  string `json:"password"`
 	CreatedAt string `json:"createdAt"`
-	UpdatedAt string `json:"updatedAt`
+	UpdatedAt string `json:"updatedAt"`
 }
 
 type UserList struct {

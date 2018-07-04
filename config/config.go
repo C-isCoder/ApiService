@@ -40,7 +40,7 @@ func (c *Config) initConfig() error {
 	}
 	viper.SetConfigType("yaml")      // 设置配置文件格式位 yaml
 	viper.AutomaticEnv()             // 读取匹配的环境变量
-	viper.SetEnvPrefix("APISERVICE") // 读取环境变量的前缀位APISERVICE
+	viper.SetEnvPrefix("APISERVICE") // 读取环境变量的前缀位 APISERVICE
 	replacer := strings.NewReplacer(".", "_")
 	viper.SetEnvKeyReplacer(replacer)
 	if err := viper.ReadInConfig(); err != nil { // viper 解析配置文件

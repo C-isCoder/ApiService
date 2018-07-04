@@ -1,8 +1,9 @@
 package user
 
 import (
-	"apiservice/handler"
+	. "apiservice/handler"
 	"apiservice/pkg/errno"
+	"apiservice/model"
 
 	"github.com/gin-gonic/gin"
 )
@@ -13,9 +14,9 @@ func Get(c *gin.Context) {
 	// Get the by the `username` from the database.
 	user, err := model.GetUser(username)
 	if err != nil {
-		handler.SendResponse(c, errno.ErrUserNotFound, nil)
+		SendResponse(c, errno.ErrUserNotFound, nil)
 		return
 	}
 
-	handler.SendResponse(c, nil, user)
+	SendResponse(c, nil, user)
 }
