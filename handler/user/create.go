@@ -20,10 +20,10 @@ func Create(c *gin.Context) {
 		return
 	}
 
-	u := model.UserModel{Username: r.Username, Passwor: r.Password}
+	u := model.UserModel{Username: r.Username, Password: r.Password}
 
 	// Valiate the data.
-	if err := u.Valiate(); err != nil {
+	if err := u.Validate(); err != nil {
 		SendResponse(c, errno.ErrValidation, nil)
 		return
 	}
