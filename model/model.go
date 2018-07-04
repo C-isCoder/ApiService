@@ -8,7 +8,7 @@ import (
 type BaseModel struct {
 	ID        uint64     `gorm:"pirmary_key;AUTO_INCREMENT;column:id" json:"-"`
 	CreatedAt time.Time  `gorm:"column:createdAt" json:"-"`
-	UpdateAt  time.Time  `gorm:"column:updatedAt" json:"-"`
+	UpdatedAt time.Time  `gorm:"column:updatedAt" json:"-"`
 	DeletedAt *time.Time `gorm:"column:deletedAt" sql:"index" json:"-"`
 }
 
