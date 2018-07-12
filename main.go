@@ -13,6 +13,7 @@ import (
 	"github.com/lexkong/log"
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
+	"apiservice/router/middleware"
 )
 
 var (
@@ -36,11 +37,11 @@ func main() {
 
 	// 创建路由引擎
 	g := gin.New()
-	var middlewares []gin.HandlerFunc
 
 	router.Load(
 		g,
-		middlewares...,
+		middleware.Logging(),
+		middleware.RequestId(),
 	)
 
 	// Ping the server to make sure the router is working
