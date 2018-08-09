@@ -10,6 +10,7 @@ import (
 	"encoding/json"
 	"github.com/lexkong/log"
 	"apiservice/pkg/errno"
+	"github.com/willf/pad"
 )
 
 type bodyLogWriter struct {
