@@ -9,7 +9,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/lexkong/log"
 	"github.com/lexkong/log/lager"
-	"fmt"
 )
 
 // Create creates a new user account.
@@ -37,7 +36,7 @@ func Create(c *gin.Context) {
 
 	// Insert the user to the database.
 	if err := u.Create(); err != nil {
-		fmt.Printf("creat user error: %s", err)
+		log.Infof("create user error: %s", err)
 		SendResponse(c, errno.ErrDatabase, nil)
 		return
 	}
