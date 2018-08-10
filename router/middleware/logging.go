@@ -1,16 +1,16 @@
 package middleware
 
 import (
-	"github.com/gin-gonic/gin"
-	"bytes"
-	"time"
-	"regexp"
-	"io/ioutil"
 	"apiservice/handler"
-	"encoding/json"
-	"github.com/lexkong/log"
 	"apiservice/pkg/errno"
+	"bytes"
+	"encoding/json"
+	"github.com/gin-gonic/gin"
+	"github.com/lexkong/log"
 	"github.com/willf/pad"
+	"io/ioutil"
+	"regexp"
+	"time"
 )
 
 type bodyLogWriter struct {
@@ -53,7 +53,7 @@ func Logging() gin.HandlerFunc {
 		ip := c.ClientIP()
 
 		// log.Debug("new request come in, path: %s, Method: %s, body '%s'", path, method, string(bodyBytes))
-		blw := &bodyLogWriter{body: bytes.NewBufferString(""), ResponseWriter: c.Writer,}
+		blw := &bodyLogWriter{body: bytes.NewBufferString(""), ResponseWriter: c.Writer}
 		c.Writer = blw
 
 		// Continue.

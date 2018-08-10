@@ -1,9 +1,9 @@
 package model
 
 import (
+	"apiservice/pkg/auth"
 	"apiservice/pkg/constvar"
 	"fmt"
-	"apiservice/pkg/auth"
 	"gopkg.in/go-playground/validator.v9"
 )
 

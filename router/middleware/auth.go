@@ -1,10 +1,10 @@
 package middleware
 
 import (
-	"github.com/gin-gonic/gin"
-	"apiservice/pkg/token"
 	"apiservice/handler"
 	"apiservice/pkg/errno"
+	"apiservice/pkg/token"
+	"github.com/gin-gonic/gin"
 )
 
 func AuthMiddleware() gin.HandlerFunc {

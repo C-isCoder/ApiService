@@ -2,8 +2,8 @@ package user
 
 import (
 	. "apiservice/handler"
-	"apiservice/pkg/errno"
 	"apiservice/model"
+	"apiservice/pkg/errno"
 
 	"github.com/gin-gonic/gin"
 )

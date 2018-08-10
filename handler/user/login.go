@@ -1,12 +1,12 @@
 package user
 
 import (
-	"github.com/gin-gonic/gin"
-	"apiservice/model"
 	"apiservice/handler"
-	"apiservice/pkg/errno"
+	"apiservice/model"
 	"apiservice/pkg/auth"
+	"apiservice/pkg/errno"
 	"apiservice/pkg/token"
+	"github.com/gin-gonic/gin"
 )
 
 // Login generates the authentication token

@@ -4,9 +4,9 @@ import (
 	"strconv"
 
 	. "apiservice/handler"
+	"apiservice/model"
 	"apiservice/pkg/errno"
 	"apiservice/util"
-	"apiservice/model"
 
 	"github.com/gin-gonic/gin"
 	"github.com/lexkong/log"
