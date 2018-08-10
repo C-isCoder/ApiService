@@ -3,6 +3,7 @@ port: :6663                       # HTTP 绑定端口
 name: apiservice                  # API Service 名字
 url: http://127.0.0.1:6663        # pingService 函数请求的 API 服务器的 ip:prot
 max_ping_count: 10                # pingService 函数尝试的次数
+jwt_secret: Rtg8BPKNEf2mB4mgvKONGPZZQSaJWNLijxR42qRgq0iBb5
 log:
   writers: file,stdout            # 输出位置，有两个可选项 —— file 和 stdout。选择 file 会将日志记录到 
   logger_level: DEBUG             # 日志级别，DEBUG、INFO、WARN、ERROR、FATAL
