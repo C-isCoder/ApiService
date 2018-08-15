@@ -10,7 +10,7 @@ gitTreeState = $(shell if git status|grep -q 'clean';then echo clean; else echo 
 ldflags="-w -X ${versionDif}.gitTag=${gitTag} -X ${versionDir}.buildDate=${buildDate} -X ${versionDir}.gitCommit=${gitCommit}"
 
 all: gotool
-	@go go build -v -ldflags ${ldflags} .
+	@go build -v -ldflags ${ldflags} .
 clean:
 	rm -f apiserver
 	find . -name "[._]*.s[a-w][a-z]" | xargs -i rm -f {}
