@@ -31,7 +31,7 @@ func main() {
 		info := v.Get()
 		marshalled, err := json.MarshalIndent(&info, "", "  ")
 		if err != nil {
-			fmt.Printf("%info\n", err)
+			fmt.Printf("%v\n", err)
 			os.Exit(1)
 		}
 
