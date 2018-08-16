@@ -1,18 +1,18 @@
 package main
 
 import (
-	"errors"
-	"net/http"
-	"time"
 	"encoding/json"
+	"errors"
 	"fmt"
+	"net/http"
 	"os"
+	"time"
 
 	"apiservice/config"
 	"apiservice/model"
+	v "apiservice/pkg/version"
 	"apiservice/router"
 	"apiservice/router/middleware"
-	v "apiservice/pkg/version"
 
 	"github.com/gin-gonic/gin"
 	"github.com/lexkong/log"

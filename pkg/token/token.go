@@ -70,7 +70,6 @@ func ParseRequest(c *gin.Context) (*Context, error) {
 	return Parse(t, secret)
 }
 
-
 // Sign signs the context with the specified secret.
 func Sign(c Context, secret string) (tokenString string, err error) {
 	// Load the jwt secret from the Gin config if the secret isn't specified.
