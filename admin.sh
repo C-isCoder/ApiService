@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SERVER="apiserver"
+SERVER="apiservice"
 BASE_DIR=$PWD
 INTERVAL=2
 
