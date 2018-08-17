@@ -8,6 +8,7 @@ import (
 	"apiservice/router/middleware"
 
 	"github.com/gin-gonic/gin"
+	"github.com/gin-contrib/pprof"
 )
 
 // Load loads the middlewares, routes, handlers.
@@ -24,6 +25,9 @@ func Load(g *gin.Engine, mw ...gin.HandlerFunc) *gin.Engine {
 	g.NoRoute(func(c *gin.Context) {
 		c.String(http.StatusNotFound, "The incorrect API route.")
 	})
+
+	// pprof router
+	pprof.Register(g)
 
 	// api for authentication functionlities
 	g.POST("/login", user.Login)
