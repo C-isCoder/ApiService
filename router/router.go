@@ -9,6 +9,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/gin-contrib/pprof"
+	"github.com/swaggo/gin-swagger"
+	"github.com/swaggo/gin-swagger/swaggerFiles"
 )
 
 // Load loads the middlewares, routes, handlers.
@@ -26,6 +28,8 @@ func Load(g *gin.Engine, mw ...gin.HandlerFunc) *gin.Engine {
 		c.String(http.StatusNotFound, "The incorrect API route.")
 	})
 
+	// swagger api docs
+	g.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	// pprof router
 	pprof.Register(g)
 
