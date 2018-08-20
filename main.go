@@ -24,7 +24,16 @@ var (
 	cfg     = pflag.StringP("config", "c", "", "apiservice config file path")
 	version = pflag.BoolP("version", "v", false, "show version info.")
 )
+// @title Apiserver Example API
+// @version 1.0
+// @description apiserver demo
 
+// @contact.name CisCoder
+// @contact.url http://www.swagger.io/support
+// @contact.email CisaCoder@gmail.com
+
+// @host localhost:6663
+// @BasePath /v1
 func main() {
 	pflag.Parse()
 	if *version {
