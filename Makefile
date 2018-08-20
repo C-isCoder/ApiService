@@ -17,8 +17,8 @@ clean:
 	rm -f apiserver
 	find . -name "[._]*.s[a-w][a-z]" | xargs -i rm -f {}
 
-swag: swag
-    swag init
+# swag: swag
+#    swag init
 
 gotool:
 	gofmt -w .
