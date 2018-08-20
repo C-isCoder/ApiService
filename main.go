@@ -32,6 +32,10 @@ var (
 // @contact.url http://www.swagger.io/support
 // @contact.email CisaCoder@gmail.com
 
+// @securityDefinitions.apikey ApiKeyAuth
+// @in header
+// @name Authorization
+
 // @host localhost:6663
 // @BasePath /v1
 func main() {
