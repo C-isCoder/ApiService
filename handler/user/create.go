@@ -14,10 +14,10 @@ import (
 // @Summary Add new user to the database
 // @Description Add a new user
 // @Tags user
-// @Accept json
-// @Produce json
+// @Accept  json
+// @Produce  json
 // @Param user body user.CreateRequest true "Create a new user"
-// @Success 200 {object} user.CreateResponse "{"code":0,"message":"OK","data":{"username":"swagger}}"
+// @Success 200 {object} user.CreateResponse "{"code":0,"message":"OK","data":{"username":"swagger"}}"
 // @Router /user [post]
 func Create(c *gin.Context) {
 	log.Info("User Create funciton called.", lager.Data{"X-Requesst-Id": util.GetReqID(c)})
