@@ -24,6 +24,7 @@ var (
 	cfg     = pflag.StringP("config", "c", "", "apiservice config file path")
 	version = pflag.BoolP("version", "v", false, "show version info.")
 )
+
 // @title Apiserver Example API
 // @version 1.0
 // @description apiserver demo

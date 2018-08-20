@@ -7,8 +7,8 @@ import (
 	"apiservice/handler/user"
 	"apiservice/router/middleware"
 
-	"github.com/gin-gonic/gin"
 	"github.com/gin-contrib/pprof"
+	"github.com/gin-gonic/gin"
 	"github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
 )
