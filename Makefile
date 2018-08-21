@@ -17,6 +17,9 @@ clean:
 	rm -f apiserver
 	find . -name "[._]*.s[a-w][a-z]" | xargs -i rm -f {}
 
+BASEDIR:swag
+    swag init
+
 gotool:
 	gofmt -w .
 	go tool vet . |& grep -v vendor;true
