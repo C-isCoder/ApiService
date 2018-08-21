@@ -25,9 +25,9 @@ var (
 	version = pflag.BoolP("version", "v", false, "show version info.")
 )
 
-// @title Apiserver Example API
+// @title Apiservice Example API
 // @version 1.0
-// @description apiserver demo
+// @description apiservice demo
 
 // @contact.name CisCoder
 // @contact.url http://www.swagger.io/support
@@ -70,7 +70,7 @@ func main() {
 	router.Load(
 		g,
 		middleware.Logging(),
-		middleware.RequestId(),
+		//middleware.RequestId(), // 性能损耗严重
 	)
 
 	// Ping the server to make sure the router is working

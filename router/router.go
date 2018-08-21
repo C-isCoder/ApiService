@@ -18,8 +18,8 @@ func Load(g *gin.Engine, mw ...gin.HandlerFunc) *gin.Engine {
 
 	// Middlewares.
 	g.Use(gin.Recovery())
-	g.Use(middleware.NoCache)
-	g.Use(middleware.Options)
+	//g.Use(middleware.NoCache) // 性能损耗严重
+	//g.Use(middleware.Options) // 性能损耗严重
 	g.Use(middleware.Secure)
 	g.Use(mw...)
 
