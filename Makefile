@@ -16,9 +16,8 @@ all: gotool
 clean:
 	rm -f apiserver
 	find . -name "[._]*.s[a-w][a-z]" | xargs -i rm -f {}
-
-BASEDIR:swag
-    swag init
+	# swagger
+	swag init
 
 gotool:
 	gofmt -w .
