@@ -2,7 +2,7 @@ package router
 
 import (
 	"net/http"
-	_"apiservice/docs"
+	_ "apiservice/docs"
 	"apiservice/handler/sd"
 	"apiservice/handler/user"
 	"apiservice/router/middleware"
